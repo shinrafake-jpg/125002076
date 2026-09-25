@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trung Tâm Đào Tạo Tri Thức Việt</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-sub: #64748b;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --border: #e2e8f0;
+        }
+
+        body.dark-mode {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-sub: #94a3b8;
+            --primary: #6366f1;
+            --primary-hover: #818cf8;
+            --border: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: 0.3s; line-height: 1.5; }
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+        section { padding: 50px 0; }
+
+        header { position: sticky; top: 0; background: var(--card-bg); border-bottom: 1px solid var(--border); z-index: 100; padding: 15px 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        nav { display: flex; gap: 20px; align-items: center; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; transition: 0.2s; }
+        nav a:hover { color: var(--primary); }
+        .theme-btn { background: none; border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; }
+
+        .banner { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; padding: 40px 0; }
+        .banner-text { flex: 1; min-width: 280px; }
+        .banner-text h1 { font-size: 2rem; margin-bottom: 10px; color: var(--primary); }
+        .banner-text p { color: var(--text-sub); margin-bottom: 20px; }
+        .banner-img { flex: 1; min-width: 280px; text-align: center; }
+        .banner-img img { width: 100%; max-width: 450px; border-radius: 12px; }
+
+        .btn { display: inline-block; padding: 10px 20px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 6px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+        .section-title { text-align: center; font-size: 1.6rem; margin-bottom: 30px; }
+        .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 160px; object-fit: cover; }
+        .card-body { padding: 15px; }
+        .card-body h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .card-info { font-size: 0.85rem; color: var(--text-sub); display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .badge { background: var(--primary); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+
+        .form-box { background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 10px; max-width: 700px; margin: auto; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .full { grid-column: span 2; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; }
+        .input-control { width: 100%; padding: 8px 12px; border: 1px solid var(--border); background: var(--bg); color: var(--text); border-radius: 5px; outline: none; }
+        .options-group { display: flex; gap: 15px; flex-wrap: wrap; font-size: 0.85rem; }
+        .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-sub); }
+
+        footer { background: var(--card-bg); border-top: 1px solid var(--border); padding: 25px 0; text-align: center; font-size: 0.85rem; color: var(--text-sub); }
+        footer p { margin-bottom: 5px; }
+
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .full { grid-column: span 1; }
+            nav { display: none; } 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo"><i class="fa-solid fa-graduation-cap"></i> TRI THỨC VIỆT</a>
+            <nav>
+                <a href="#banner">Trang chủ</a>
+                <a href="#khoa-hoc">Khóa học</a>
+                <a href="#khoa-hoc">Giảng viên</a>
+                <a href="#khoa-hoc">Học phí</a>
+                <a href="#dang-ky">Đăng ký</a>
+            </nav>
+            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn"><i class="fa-solid fa-moon"></i> Dark</button>
+        </div>
+    </header>
+    <main class="container">
+        <section id="banner" class="banner fade-in">
+            <div class="banner-text">
+                <h1>Khóa Học Trực Tuyến Chất Lượng cao</h1>
+                <p>Học thực chiến, làm thực tế cùng đội ngũ chuyên gia hàng đầu.</p>
+                <a href="#khoa-hoc" class="btn">Xem khóa học</a>
+            </div>
+            <div class="banner-img">
+                <img src="c:\Users\LHUser\Downloads\smurf\image\ky-nang-lam-viec-nhom-1024x559.jpg" alt="Lớp học trực tuyến">
+            </div>
+        </section>
+        <section id="khoa-hoc">
+            <h2 class="section-title">Khóa Học Nổi Bật</h2>
+            <div class="courses-grid fade-in">         
+                <div class="card">
+                    <img src="c:\Users\LHUser\Downloads\smurf\image\end.png" alt="Web Frontend">
+                    <div class="card-body">
+                        <span class="badge">Newbie</span>
+                        <h3 style="margin-top:5px;">Lập trình Web Frontend</h3>
+                        <div class="course-info"><span><i class="fa-regular fa-clock"></i> 3 tháng</span><strong>3.500.000 VNĐ</strong></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="c:\Users\LHUser\Downloads\smurf\image\ges.jpg" alt="JavaScript">
+                    <div class="card-body">
+                        <span class="badge">Basic</span>
+                        <h3 style="margin-top:5px;">JavaScript Nâng Cao</h3>
+                        <div class="course-info"><span><i class="fa-regular fa-clock"></i> 3 tháng</span><strong>4.600.000 VNĐ</strong></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="c:\Users\LHUser\Downloads\smurf\image\(1).jpg" alt="Python">
+                    <div class="card-body">
+                        <span class="badge">Newbie</span>
+                        <h3 style="margin-top:5px;">Python & Data</h3>
+                        <div class="course-info"><span><i class="fa-regular fa-clock"></i> 5 tháng</span><strong>4.000.000 VNĐ</strong></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="c:\Users\LHUser\Downloads\smurf\image\Uxs.jpg" alt="UI UX">
+                    <div class="card-body">
+                        <span class="badge">Newbie</span>
+                        <h3 style="margin-top:5px;">Thiết kế UI/UX</h3>
+                        <div class="course-info"><span><i class="fa-regular fa-clock"></i> 3 tháng</span><strong>3.600.000 VNĐ</strong></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="c:\Users\LHUser\Downloads\smurf\image\s.jpg" alt="React Native">
+                    <div class="card-body">
+                        <span class="badge">Basic</span>
+                        <h3 style="margin-top:5px;">Lập trình React Native</h3>
+                        <div class="course-info"><span><i class="fa-regular fa-clock"></i> 4.5 tháng</span><strong>3.500.000 VNĐ</strong></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="c:\Users\LHUser\Downloads\smurf\image\i.jpg" alt="DevOps">
+                    <div class="card-body">
+                        <span class="badge">Pro</span>
+                        <h3 style="margin-top:5px;">DevOps & Cloud</h3>
+                        <div class="course-info"><span><i class="fa-regular fa-clock"></i> 6 tháng</span><strong>5.200.000 VNĐ</strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="dang-ky">
+            <div class="form-box fade-in">
+                <h2 class="section-title" style="margin-bottom: 20px;">Đăng Ký Khóa Học</h2>
+                <form id="regForm" onsubmit="handleSubmit(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Họ và tên *</label>
+                            <input type="text" class="input-control" required placeholder="Nguyễn Văn A">
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày sinh *</label>
+                            <input type="date" class="input-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" class="input-control" required placeholder="name@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại *</label>
+                            <input type="tel" class="input-control" required placeholder="0901234567">
+                        </div>
+                        <div class="form-group full">
+                            <label>Trình độ hiện tại *</label>
+                            <div class="options-group">
+                                <label><input type="radio" name="level" value="Mới bắt đầu" checked> Newbie</label>
+                                <label><input type="radio" name="level" value="Cơ bản"> Basic</label>
+                                <label><input type="radio" name="level" value="Nâng cao"> Pro</label>
+                            </div>
+                        </div>
+                        <div class="form-group full">
+                            <label>Khóa học *</label>
+                            <select class="input-control" required>
+                                <option value="">-- Hãy Chọn khóa học --</option>
+                                <option>Lập trình Web Frontend</option>
+                                <option>JavaScript Nâng Cao</option>
+                                <option>Python & Data Science</option>
+                                <option>Thiết kế UI/UX</option>
+                                <option>Lập trình React Native</option>
+                                <option>DevOps & Cloud</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label>Ca học</label>
+                            <div class="options-group">
+                                <label><input type="checkbox" name="shift" value="Sáng"> Sáng</label>
+                                <label><input type="checkbox" name="shift" value="Chiều"> Chiều</label>
+                                <label><input type="checkbox" name="shift" value="Tối"> Tối</label>
+                                <label><input type="checkbox" name="shift" value="Cuối tuần"> Cuối tuần</label>
+                            </div>
+                        </div>
+                        <div class="form-group full">
+                            <label>Mục tiêu học tập</label>
+                            <textarea class="input-control" rows="3" placeholder="Chia sẻ mục tiêu của bạn..."></textarea>
+                        </div>
+                        <div class="form-group full" style="display:flex; gap:10px;">
+                            <button type="submit" class="btn">Đăng Ký</button>
+                            <button type="reset" class="btn btn-secondary">Nhập Lại</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><i class="fa-solid fa-location-dot"></i> Czech Republic | <i class="fa-solid fa-phone"></i> Hotline: 6767 123 567</p>
+            <p><i class="fa-solid fa-envelope"></i> Scamer@trungtamdaotao.edu.vn</p>
+        </div>
+    </footer>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            const btn = document.getElementById('themeBtn');
+            btn.innerHTML = isDark 
+                ? '<i class="fa-solid fa-sun"></i> Light' 
+                : '<i class="fa-solid fa-moon"></i> Dark';
+        }
+        function handleSubmit(e) {
+            e.preventDefault();
+            const formContainer = document.querySelector('.form-box');
+            formContainer.innerHTML = `
+                <div style="text-align:center; padding: 20px;">
+                    <i class="fa-solid fa-circle-check" style="font-size:3rem; color: #10b981; margin-bottom:15px;"></i>
+                    <h3>Đăng Ký Thành Công!</h3>
+                    <p style="color:var(--text-sub); margin-top:10px;">Cẻm ơn bạn đã đăng ký :3. Chúng tôi sẽ sớm liên hệ tư vấn!</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
